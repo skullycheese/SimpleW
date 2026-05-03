@@ -19,6 +19,7 @@ This package provides IP-based filtering, rate limiting, connection rules and se
 The minimal API
 
 ```cs
+using System.Net;
 using SimpleW;
 using SimpleW.Observability;
 using SimpleW.Service.Firewall;
@@ -33,9 +34,6 @@ namespace Sample {
 
             // listen to all IPs port 2015
             var server = new SimpleWServer(IPAddress.Any, 2015);
-
-            // set Newtonsoft.json as a JsonEngine
-            server.ConfigureJsonEngine(new NewtonsoftJsonEngine());
 
             // minimal api
             server.MapGet("/api/test", () => {
@@ -73,6 +71,8 @@ namespace Sample {
 
 }
 ```
+
+When a `PathRule` matches, it handles allow/deny/country checks for that prefix. Repeat global allow rules inside the path rule when the prefix must keep the same allowlist.
 
 ## Documentation
 
