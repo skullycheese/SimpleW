@@ -179,6 +179,62 @@ namespace test {
         }
 
         [Fact]
+        public async Task MapController_Should_Support_Task_With_Result_When_Di_Is_Enabled() {
+            int port = PortManager.GetFreePort();
+
+            await using ServiceProvider rootProvider = new ServiceCollection()
+                                                       .AddScoped<AsyncResultMessageService>(_ => new AsyncResultMessageService("task"))
+                                                       .BuildServiceProvider();
+
+            var server = new SimpleWServer(IPAddress.Loopback, port);
+            server.UseDependencyInjection(rootProvider);
+            server.MapController<TaskResultDiController>("/api");
+
+            try {
+                await server.StartAsync();
+
+                var client = new HttpClient();
+                var response = await client.GetAsync($"http://{server.Address}:{server.Port}/api/async-result/task");
+                var content = await response.Content.ReadAsStringAsync();
+
+                Check.That(response.StatusCode).Is(HttpStatusCode.OK);
+                Check.That(content).IsEqualTo(JsonSerializer.Serialize(new { message = "task" }));
+            }
+            finally {
+                await server.StopAsync();
+                PortManager.ReleasePort(port);
+            }
+        }
+
+        [Fact]
+        public async Task MapController_Should_Support_ValueTask_With_Result_When_Di_Is_Enabled() {
+            int port = PortManager.GetFreePort();
+
+            await using ServiceProvider rootProvider = new ServiceCollection()
+                                                       .AddScoped<AsyncResultMessageService>(_ => new AsyncResultMessageService("value-task"))
+                                                       .BuildServiceProvider();
+
+            var server = new SimpleWServer(IPAddress.Loopback, port);
+            server.UseDependencyInjection(rootProvider);
+            server.MapController<ValueTaskResultDiController>("/api");
+
+            try {
+                await server.StartAsync();
+
+                var client = new HttpClient();
+                var response = await client.GetAsync($"http://{server.Address}:{server.Port}/api/async-result/value-task");
+                var content = await response.Content.ReadAsStringAsync();
+
+                Check.That(response.StatusCode).Is(HttpStatusCode.OK);
+                Check.That(content).IsEqualTo(JsonSerializer.Serialize(new { message = "value-task" }));
+            }
+            finally {
+                await server.StopAsync();
+                PortManager.ReleasePort(port);
+            }
+        }
+
+        [Fact]
         public async Task MapController_Should_Dispose_Controller_After_Request_When_Di_Is_Enabled() {
             int port = PortManager.GetFreePort();
 
@@ -360,6 +416,52 @@ namespace test {
                 return new {
                     message = "excluded"
                 };
+            }
+
+        }
+
+        public sealed class AsyncResultMessageService {
+
+            public string Message { get; }
+
+            public AsyncResultMessageService(string message) {
+                Message = message;
+            }
+
+        }
+
+        [Route("/async-result")]
+        public sealed class TaskResultDiController : Controller {
+
+            private readonly AsyncResultMessageService _messageService;
+
+            public TaskResultDiController(AsyncResultMessageService messageService) {
+                _messageService = messageService;
+            }
+
+            [Route("GET", "/task")]
+            public Task<object> Get() {
+                return Task.FromResult<object>(new {
+                    message = _messageService.Message
+                });
+            }
+
+        }
+
+        [Route("/async-result")]
+        public sealed class ValueTaskResultDiController : Controller {
+
+            private readonly AsyncResultMessageService _messageService;
+
+            public ValueTaskResultDiController(AsyncResultMessageService messageService) {
+                _messageService = messageService;
+            }
+
+            [Route("GET", "/value-task")]
+            public ValueTask<object> Get() {
+                return ValueTask.FromResult<object>(new {
+                    message = _messageService.Message
+                });
             }
 
         }

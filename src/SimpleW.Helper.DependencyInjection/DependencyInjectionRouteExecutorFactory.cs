@@ -282,7 +282,8 @@ namespace SimpleW.Helper.DependencyInjection {
 
         private static ReturnAdapter CreateClosedReturnAdapter(MethodInfo openGenericMethod, Type resultType) {
             MethodInfo closedMethod = openGenericMethod.MakeGenericMethod(resultType);
-            return (ReturnAdapter)Delegate.CreateDelegate(typeof(ReturnAdapter), closedMethod);
+            Func<ReturnAdapter> factory = (Func<ReturnAdapter>)Delegate.CreateDelegate(typeof(Func<ReturnAdapter>), closedMethod);
+            return factory();
         }
 
         private static ReturnAdapter CreateTaskWithResultAdapter<T>() {
