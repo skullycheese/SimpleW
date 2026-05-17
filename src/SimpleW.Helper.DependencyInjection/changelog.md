@@ -1,6 +1,15 @@
 # Changelog
 
 
+## v26.0.1 - _(2026-05-17)_
+Maintenance
+
+### fix
+
+- fix(SimpleW.Helper.DependencyInjection): exception when delegate return Task/ValueTask with object (#382)
+
+
+
 ## v26.0.0 - _(2026-04-26)_
 
 Initial release of `SimpleW.Helper.DependencyInjection`.
