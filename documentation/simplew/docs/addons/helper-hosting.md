@@ -38,6 +38,8 @@ Install the package from NuGet:
 $ dotnet add package SimpleW.Helper.Hosting --version 26.0.0
 ```
 
+See the [changelog](./helper-hosting-changelog.md)
+
 
 ## Minimal example
 

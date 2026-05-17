@@ -32,6 +32,8 @@ It allows you to :
 $ dotnet add package SimpleW.Service.Letsencrypt --version 26.0.0
 ```
 
+See the [changelog](./service-letsencrypt-changelog.md)
+
 
 ## Configuration options
 

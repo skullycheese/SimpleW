@@ -29,6 +29,8 @@ No external dependencies.
 $ dotnet add package SimpleW.Service.Latency --version 26.0.0
 ```
 
+See the [changelog](./service-latency-changelog.md)
+
 
 ## Configuration options
 

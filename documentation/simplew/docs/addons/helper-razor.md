@@ -33,6 +33,8 @@ It allows you to :
 $ dotnet add package SimpleW.Helper.Razor --version 26.0.0
 ```
 
+See the [changelog](./helper-razor-changelog.md)
+
 
 ## Configuration options
 

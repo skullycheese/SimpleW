@@ -4,9 +4,11 @@
     "vue": "^3.5.17"
   },
   "scripts": {
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
+    "sync:docs": "node scripts/sync-doc-files.mjs",
+    "sync:release": "node scripts/sync-doc-files.mjs",
+    "docs:dev": "node scripts/sync-doc-files.mjs --watch -- vitepress dev docs",
+    "docs:build": "node scripts/sync-doc-files.mjs && vitepress build docs",
+    "docs:preview": "node scripts/sync-doc-files.mjs && vitepress preview docs"
   },
   "dependencies": {
     "swiper": "^12.0.3"

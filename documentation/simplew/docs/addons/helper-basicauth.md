@@ -32,6 +32,8 @@ Install the package from NuGet:
 $ dotnet add package SimpleW.Helper.BasicAuth --version 26.0.0
 ```
 
+See the [changelog](./helper-basicauth-changelog.md)
+
 
 ## Configuration options
 

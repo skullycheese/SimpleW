@@ -36,6 +36,8 @@ Install the package from NuGet:
 $ dotnet add package SimpleW.Service.OpenID --version 26.0.0
 ```
 
+See the [changelog](./service-openid-changelog.md)
+
 
 ## Configuration options
 

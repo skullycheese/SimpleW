@@ -37,6 +37,8 @@ Install the package from NuGet:
 $ dotnet add package SimpleW.Service.BasicAuth --version 26.0.0
 ```
 
+See the [changelog](./service-basicauth-changelog.md)
+
 
 ## Configuration options
 

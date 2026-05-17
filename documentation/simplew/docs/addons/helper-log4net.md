@@ -30,6 +30,8 @@ It allows you to :
 $ dotnet add package SimpleW.Helper.Log4net --version 26.0.0
 ```
 
+See the [changelog](./helper-log4net-changelog.md)
+
 
 ## Configuration options
 

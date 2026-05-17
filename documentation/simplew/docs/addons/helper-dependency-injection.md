@@ -32,6 +32,8 @@ Install the package from NuGet:
 $ dotnet add package SimpleW.Helper.DependencyInjection --version 26.0.0
 ```
 
+See the [changelog](./helper-dependency-injection-changelog.md)
+
 
 ## What it changes
 

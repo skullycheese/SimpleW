@@ -31,6 +31,8 @@ It allows you to :
 $ dotnet add package SimpleW.Helper.Serilog --version 26.0.0
 ```
 
+See the [changelog](./helper-serilog-changelog.md)
+
 
 ## Configuration options
 

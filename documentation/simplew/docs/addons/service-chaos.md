@@ -27,6 +27,8 @@ No external dependencies.
 $ dotnet add package SimpleW.Service.Chaos --version 26.0.0
 ```
 
+See the [changelog](./service-chaos-changelog.md)
+
 
 ## Configuration options
 

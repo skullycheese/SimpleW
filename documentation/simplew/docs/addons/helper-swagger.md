@@ -36,6 +36,8 @@ No external dependencies.
 $ dotnet add package SimpleW.Helper.Swagger --version 26.0.0
 ```
 
+See the [changelog](./helper-swagger-changelog.md)
+
 
 ## Configuration options
 

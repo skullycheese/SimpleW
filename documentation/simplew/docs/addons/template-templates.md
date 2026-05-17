@@ -31,6 +31,8 @@ Install the templates package using :
 dotnet new install SimpleW.Templates
 ```
 
+See the [changelog](./template-templates-changelog.md)
+
 You can browse all the available templates :
 
 ```bash

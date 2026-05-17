@@ -33,6 +33,8 @@ Install the package from NuGet:
 $ dotnet add package SimpleW.Helper.Jwt --version 26.0.0
 ```
 
+See the [changelog](./helper-jwt-changelog.md)
+
 
 ## Configuration options
 
