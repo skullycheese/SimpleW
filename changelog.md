@@ -1,12 +1,12 @@
-# RELEASE
+# Changelog
 
 
 Notes :
-- it does not strictly follow the semver convention.
-- no technical debt : code that's need to be refactored/broken, will be.
-- when something breaks, it's documented and a migration guide is provided.
-- no long-term support or backports for major versions, just stick to the latest update.
-- found a bug or way to optimize, feel free to submit a patch.
+- It does not strictly follow the semver convention.
+- No technical debt : code that needs to be refactored/broken, will be.
+- When something breaks, it's documented and a migration guide is provided.
+- No long-term support or backports for major versions, just stick to the latest update.
+- Found a bug or a way to optimize? Feel free to submit a patch.
 
 
 ## Roadmap / _(2026-??-??)_
