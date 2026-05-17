@@ -1,0 +1,11 @@
+# Changelog
+
+
+## v26.0.0 - _(2026-04-26)_
+
+Initial release of `SimpleW.Service.Chaos`.
+
+### feature
+
+- Initial `SimpleW.Service.Chaos` package release for SimpleW v26.
+- Add chaos engineering support to simulate HTTP errors, latency, and connection failures.

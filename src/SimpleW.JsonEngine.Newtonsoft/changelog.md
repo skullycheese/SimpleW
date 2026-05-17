@@ -1,0 +1,11 @@
+# Changelog
+
+
+## v26.0.0 - _(2026-04-26)_
+
+Initial release of `SimpleW.JsonEngine.Newtonsoft`.
+
+### feature
+
+- Initial `SimpleW.JsonEngine.Newtonsoft` package release for SimpleW v26.
+- Add Newtonsoft.Json integration for SimpleW JSON serialization.

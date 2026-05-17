@@ -1,0 +1,11 @@
+# Changelog
+
+
+## v26.0.0 - _(2026-04-26)_
+
+Initial release of `SimpleW.Service.Latency`.
+
+### feature
+
+- Initial `SimpleW.Service.Latency` package release for SimpleW v26.
+- Add a latency module that introduces artificial HTTP response delays for testing and debugging.
